@@ -77,7 +77,7 @@ export default function NavbarAlt(props) {
             <>
               <div className="flex flex-wrap justify-between md:gap-10 lg:flex-nowrap">
                 <div className="flex w-full items-center justify-between lg:w-auto">
-                  <Link href="/" className="w-28 dark:hidden">
+                  <Link href="/" className="w-40 dark:hidden">
                     {props.logo ? (
                       <Image
                         src={urlForImage(props.logo)}
@@ -87,11 +87,11 @@ export default function NavbarAlt(props) {
                       />
                     ) : (
                       <span className="block text-center">
-                        Stablo
+                        WellMate
                       </span>
                     )}
                   </Link>
-                  <Link href="/" className="hidden w-28 dark:block">
+                  <Link href="/" className="hidden w-40 dark:block">
                     {props.logoalt ? (
                       <Image
                         src={urlForImage(props.logoalt)}
@@ -101,7 +101,7 @@ export default function NavbarAlt(props) {
                       />
                     ) : (
                       <span className="block text-center">
-                        Stablo
+                        WellMate
                       </span>
                     )}
                   </Link>
