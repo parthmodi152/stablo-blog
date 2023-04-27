@@ -479,6 +479,140 @@ export default function HisSecretObsession() {
             </div>
           </div>
         </section>
+        <section className="px-4 py-10 dark:bg-gray-800">
+          <h2 className="mb-5 text-4xl font-bold text-gray-800 dark:text-white">
+            FAQs
+          </h2>
+          <dl className="space-y-6">
+            <div className="space-y-2">
+              <dt className="text-xl font-semibold text-gray-800 dark:text-gray-200">
+                Who is James Bauer?
+              </dt>
+              <dd className="text-gray-700 dark:text-gray-300">
+                James Bauer is a dating and relationship coach and
+                also the author of the bestselling courses His Secret
+                Obsession and What Men Secretly Want.
+                <br />
+                <br />
+                His courses have inspired thousands of women across
+                the world to finally have the loving, fulfilling
+                relationships they deserve.
+                <br />
+                <br />
+                James believes that being irresistible is about a
+                special set of qualities that emanate from feelings of
+                happiness, true confidence, and a kind of inner beauty
+                that pulls at a man's heartstrings.
+                <br />
+                <br />
+                Being irresistible is the embodiment of what makes a
+                woman truly attractive in every sense of the word.
+                It's about creating an irresistible draw with who you
+                really are.
+              </dd>
+            </div>
+
+            <div className="space-y-2">
+              <dt className="text-xl font-semibold text-gray-800 dark:text-gray-200">
+                Will His Secret Obsession work for me, my situation is
+                different?
+              </dt>
+              <dd className="text-gray-700 dark:text-gray-300">
+                No matter what situation you’re in, you will find word
+                for word scripts, actionable steps and incredible
+                insights that will transform your love life and give
+                you the confidence and happiness you’ve always wanted.
+                <br />
+                <br />
+                Here are some of the relationship stages and
+                situations where it has been very effective.
+                <br />
+                <br />
+                1. Attraction Stage
+                <br />
+                I’m trying to win the affections of a guy who doesn’t
+                see me that way yet. How can I get him to see me as
+                more than a friend? Why do guys show interest and then
+                just drift away? I know he likes me. Why won’t he just
+                admit it?
+                <br />
+                <br />
+                2. Dating but Falling Apart Stage
+                <br />
+                Things started great and now he’s drifting away. Why
+                won’t he commit? I want him to choose me and stop
+                seeing other women. He’s ignoring my texts
+                <br />
+                <br />
+                3. Re-Spark Stage
+                <br />
+                We’re together but need to Re-Spark the relationship
+                My man ignores me Why won’t he return my calls? He has
+                grown cold or distant
+                <br />
+                <br />
+                4. Ex-Back Stage
+                <br />
+                It’s Over, But I want him back. I’m trying to start
+                over with my ex. I want things to be like when we
+                first met.
+              </dd>
+            </div>
+
+            <div className="space-y-2">
+              <dt className="text-xl font-semibold text-gray-800 dark:text-gray-200">
+                How does the His Secret Obsession Guarantee Work?
+              </dt>
+              <dd className="dark-gray-300 text-gray-700">
+                Beirresistible.com stands behind their products and
+                training. They offer a 60-day 100% guarantee on
+                everything they sell. Feel free to test any course or
+                product with the assurance that if it's not a great
+                fit you can get your money back.
+              </dd>
+            </div>
+
+            <div className="space-y-2">
+              <dt className="text-xl font-semibold text-gray-800 dark:text-gray-200">
+                How long does it take for His Secret Obsession to
+                start working?
+              </dt>
+              <dd className="text-gray-700 dark:text-gray-300">
+                Many of the techniques and steps in this course can
+                have an effect on your man right away, while others
+                are meant to snowball over time to create long-lasting
+                love and romance.
+                <br />
+                <br />
+                Every situation is different, so there is no guarantee
+                on a timeline for success, but these methods are
+                extremely effective when you follow the course and
+                take action.
+              </dd>
+            </div>
+
+            <div className="space-y-2">
+              <dt className="text-xl font-semibold text-gray-800 dark:text-gray-200">
+                Where can I get His Secret Obsession?
+              </dt>
+              <dd className="text-gray-700 dark:text-gray-300">
+                Many of the techniques and steps in this course can
+                have an effect on your man right away, while others
+                are meant to snowball over time to create long-lasting
+                love and romance.
+                <br />
+                <br />
+                You can get full access to His Secret Obsession by
+                clicking buy below.
+                <br />
+                <br />
+                All our transactions are processed through secure
+                third-party vendors which use bank-level encryption to
+                protect your data and privacy.
+              </dd>
+            </div>
+          </dl>
+        </section>
       </div>
     </>
   );
