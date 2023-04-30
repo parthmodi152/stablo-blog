@@ -1,5 +1,5 @@
 import React from "react";
-import Head from "next/head";
+import Script from "next/script";
 
 export default function HisSecretObsession() {
   const affiliateLink =
@@ -7,6 +7,17 @@ export default function HisSecretObsession() {
 
   return (
     <>
+      <Script>
+        {`
+          window.clickmagick_cmc = {
+            uid: '179439',
+            hid: '3224741016',
+            cmc_project: 'His Secret Obsession',
+            vid_info: 'on',
+          }
+        `}
+      </Script>
+      <Script src="//cdn.clkmc.com/cmc.js" />
       <div className="mx-auto max-w-7xl font-sans dark:bg-black">
         <header className="bg-pink-300 py-5 text-center dark:bg-pink-700">
           <h1 className="text-4xl font-bold text-gray-800 dark:text-white">
