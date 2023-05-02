@@ -17,7 +17,17 @@ export default function HisSecretObsession() {
           }
         `}
       </Script>
-      <Script src="//cdn.clkmc.com/cmc.js" />
+      <Script src="https://cdn.clkmc.com/cmc.js" />
+      <Script src="https://www.googletagmanager.com/gtag/js?id=AW-11101595096" />
+      <Script>
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'AW-11101595096');
+        `}
+      </Script>
       <div className="mx-auto max-w-7xl font-sans dark:bg-black">
         <header className="bg-pink-300 py-5 text-center dark:bg-pink-700">
           <h1 className="text-4xl font-bold text-gray-800 dark:text-white">
