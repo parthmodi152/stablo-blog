@@ -11,7 +11,7 @@ export default function Alpilean() {
       await va.track(eventName, {
         url,
         source: "facebook",
-        campaign: "ad campaign name",
+        campaign: "Alpilean Traffic 7.17",
         client_user_agent: navigator.userAgent
       });
     } catch (error) {
