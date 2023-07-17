@@ -2,6 +2,7 @@ import { getSettings } from "@/lib/sanity/client";
 import Footer from "@/components/footer";
 import { urlForImage } from "@/lib/sanity/image";
 import Navbar from "@/components/navbar";
+import { Analytics } from '@vercel/analytics/react';
 
 export async function sharedMetaData(params) {
   const settings = await getSettings();
@@ -53,6 +54,7 @@ export default async function Layout({ children, params }) {
       <Navbar {...settings} />
 
       <div>{children}</div>
+      <Analytics />
 
       <Footer {...settings} />
     </>
