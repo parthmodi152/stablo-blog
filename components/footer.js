@@ -11,6 +11,11 @@ export default function Footer(props) {
         Copyright © {new Date().getFullYear()} {props?.copyright}. All
         rights reserved.
       </div>
+      <div className="text-center text-sm">
+        This site is not a part of the Facebook website or Facebook
+        Inc. Additionally, This site is NOT endorsed by Facebook in
+        any way. FACEBOOK is a trademark of FACEBOOK, Inc.
+      </div>
       <div className="mt-2 flex items-center justify-center">
         <ThemeSwitch />
       </div>
