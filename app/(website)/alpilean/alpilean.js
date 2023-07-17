@@ -1,60 +1,24 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
+import va from "@vercel/analytics";
 
 export default function Alpilean() {
-  useEffect(() => {
-    // Tracking script
-    window.clickmagick_cmc = {
-      uid: "183624",
-      hid: "3969570387",
-      cmc_project: "Rias Sunday Secrets",
-      vid_info: "on"
-    };
+  const affiliateLink =
+    "https://hop.clickbank.net/?affiliate=pmodi152&vendor=alpilean&pg=vid";
+  const trackEvent = async (url, eventName) => {
+    try {
+      // Send a "hop" event to Vercel
+      await va.track(eventName, {
+        url,
+        source: "facebook",
+        campaign: "ad campaign name",
+        client_user_agent: navigator.userAgent
+      });
+    } catch (error) {
+      console.error("Failed to send event to Vercel", error);
+    }
 
-    const script = document.createElement("script");
-    script.src = "//cdn.clkmc.com/cmc.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    // Cleanup script when component unmounts
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
-  const sendEventToFacebook = async url => {
-    // const eventData = {
-    //   data: [
-    //     {
-    //       event_name: "Lead",
-    //       event_time: Math.floor(Date.now() / 1000),
-    //       action_source: "website",
-    //       user_data: {
-    //         client_user_agent: window.navigator.userAgent
-    //         // Add additional parameters as required
-    //       }
-    //     }
-    //   ]
-    // };
-
-    // const response = await fetch(
-    //   `https://graph.facebook.com/v17.0/795666048959469/events?access_token=698875285408253%7CQM-ZxCP7geLb7o9FXQV5Ljodok8`,
-    //   {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify(eventData)
-    //   }
-    // );
-
-    // if (!response.ok) {
-    //   const errorDetails = await response.json();
-    //   console.error("Failed to send event to Facebook", errorDetails);
-    //   return;
-    // }
-
-    // Redirect to the affiliate link after sending the event
+    // Redirect to the affiliate link
     window.location.href = url;
   };
 
@@ -76,9 +40,7 @@ export default function Alpilean() {
           <a
             onClick={e => {
               e.preventDefault();
-              sendEventToFacebook(
-                "https://hop.clickbank.net/?affiliate=pmodi152&vendor=alpilean&pg=vid"
-              );
+              trackEvent(affiliateLink, "hop");
             }}
             href="#">
             <img
@@ -99,9 +61,7 @@ export default function Alpilean() {
           <a
             onClick={e => {
               e.preventDefault();
-              sendEventToFacebook(
-                "https://hop.clickbank.net/?affiliate=pmodi152&vendor=alpilean&pg=vid"
-              );
+              trackEvent(affiliateLink, "hop");
             }}
             href="#"
             className="block rounded-lg bg-yellow-300 px-6 py-3 text-center font-bold text-blue-900 shadow-lg transition duration-200 hover:bg-yellow-400">
@@ -126,9 +86,7 @@ export default function Alpilean() {
           <a
             onClick={e => {
               e.preventDefault();
-              sendEventToFacebook(
-                "https://hop.clickbank.net/?affiliate=pmodi152&vendor=alpilean&pg=vid"
-              );
+              trackEvent(affiliateLink, "hop");
             }}
             href="#"
             className="mt-10 block text-center text-lg text-red-600 hover:text-red-700 dark:text-red-400">
@@ -147,9 +105,7 @@ export default function Alpilean() {
           <a
             onClick={e => {
               e.preventDefault();
-              sendEventToFacebook(
-                "https://hop.clickbank.net/?affiliate=pmodi152&vendor=alpilean&pg=vid"
-              );
+              trackEvent(affiliateLink, "hop");
             }}
             href="#"
             className="block rounded-lg bg-yellow-300 px-6 py-3 text-center font-bold text-blue-900 shadow-lg transition duration-200 hover:bg-yellow-400">
