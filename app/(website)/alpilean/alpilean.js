@@ -47,9 +47,13 @@ export default function Alpilean() {
 
   const handleEmailSubmit = async e => {
     e.preventDefault();
-    setShowModal(false);
-    await createContact(email);
-    await trackEvent(affiliateLink, "hop", email);
+    if (email) {
+      setShowModal(false);
+      await createContact(email);
+      await trackEvent(affiliateLink, "hop", email);
+    } else {
+      alert("Please provide a valid email");
+    }
   };
 
   return (
