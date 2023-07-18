@@ -147,7 +147,7 @@ export default function Alpilean() {
           </a>
         </div>
       </div>
-      {showModal && (
+      {false && (
         <div
           className="fixed inset-0 z-10 overflow-y-auto"
           aria-labelledby="modal-title"
