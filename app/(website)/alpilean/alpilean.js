@@ -17,14 +17,15 @@ export default function Alpilean() {
   const affiliateLink =
     "https://hop.clickbank.net/?affiliate=pmodi152&vendor=alpilean&pg=vid";
 
-  const trackEvent = async (url, eventName) => {
+  const trackEvent = async (url, eventName, email) => {
     try {
       // Send a "hop" event to Vercel
       await va.track(eventName, {
         url,
         source: "facebook",
         campaign: "Alpilean Traffic 7.17",
-        client_user_agent: navigator.userAgent
+        client_user_agent: navigator.userAgent,
+        email: email
       });
     } catch (error) {
       console.error("Failed to send event to Vercel", error);
@@ -36,20 +37,9 @@ export default function Alpilean() {
 
   const createContact = async email => {
     try {
-      await axios.post(
-        "https://api.getresponse.com/v3/contacts",
-        {
-          email: email,
-          campaign: {
-            campaignId: "qJVBJ"
-          }
-        },
-        {
-          headers: {
-            "X-Auth-Token": "api-key as2nj1ssd0463uzqncwptsawzl1edy17"
-          }
-        }
-      );
+      await fetch(`/api/getResponse?email=${email}`, {
+        method: "POST"
+      });
     } catch (error) {
       console.error("Failed to send contact to GetResponse", error);
     }
@@ -57,9 +47,9 @@ export default function Alpilean() {
 
   const handleEmailSubmit = async e => {
     e.preventDefault();
-    const contact = await createContact(email);
-    trackEvent(affiliateLink, "hop");
     setShowModal(false);
+    await createContact(email);
+    await trackEvent(affiliateLink, "hop", email);
   };
 
   return (
@@ -80,7 +70,7 @@ export default function Alpilean() {
           <a
             onClick={e => {
               e.preventDefault();
-              trackEvent(affiliateLink, "hop");
+              trackEvent(affiliateLink, "hop", "");
             }}
             href="#">
             <img
@@ -101,7 +91,7 @@ export default function Alpilean() {
           <a
             onClick={e => {
               e.preventDefault();
-              trackEvent(affiliateLink, "hop");
+              trackEvent(affiliateLink, "hop", "");
             }}
             href="#"
             className="block rounded-lg bg-yellow-300 px-6 py-3 text-center font-bold text-blue-900 shadow-lg transition duration-200 hover:bg-yellow-400">
@@ -126,7 +116,7 @@ export default function Alpilean() {
           <a
             onClick={e => {
               e.preventDefault();
-              trackEvent(affiliateLink, "hop");
+              trackEvent(affiliateLink, "hop", "");
             }}
             href="#"
             className="mt-10 block text-center text-lg text-red-600 hover:text-red-700 dark:text-red-400">
@@ -145,7 +135,7 @@ export default function Alpilean() {
           <a
             onClick={e => {
               e.preventDefault();
-              trackEvent(affiliateLink, "hop");
+              trackEvent(affiliateLink, "hop", "");
             }}
             href="#"
             className="block rounded-lg bg-yellow-300 px-6 py-3 text-center font-bold text-blue-900 shadow-lg transition duration-200 hover:bg-yellow-400">
