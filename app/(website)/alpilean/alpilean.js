@@ -10,7 +10,7 @@ export default function Alpilean() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowModal(true);
-    }, 3000);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
