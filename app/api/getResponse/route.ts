@@ -12,6 +12,7 @@ export async function POST(request: Request) {
         },
         body: JSON.stringify({
               email: email,
+              dayOfCycle: 0,
               campaign: {
                 campaignId: 'qJVBJ',
               },
