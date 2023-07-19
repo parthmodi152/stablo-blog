@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import va from "@vercel/analytics";
+import * as pixel from "../../../lib/sanity/fpixel";
 
 export default function Alpilean() {
   const [showModal, setShowModal] = useState(false);
@@ -27,12 +28,20 @@ export default function Alpilean() {
         client_user_agent: navigator.userAgent,
         email: email
       });
+
+      await pixel.event("Lead", {
+        content_type: "product",
+        content_name: "Alpilean"
+      });
     } catch (error) {
-      console.error("Failed to send event to Vercel", error);
+      console.error(
+        "Failed to send event to Vercel or meta pixel",
+        error
+      );
     }
 
     // Redirect to the affiliate link
-    window.location.href = url;
+    // window.location.href = url;
   };
 
   const createContact = async email => {
