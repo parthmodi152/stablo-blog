@@ -41,7 +41,7 @@ export default function Alpilean() {
     }
 
     // Redirect to the affiliate link
-    // window.location.href = url;
+    window.location.href = url;
   };
 
   const createContact = async email => {
