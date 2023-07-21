@@ -7,6 +7,7 @@ import * as pixel from "../../../lib/sanity/fpixel";
 export default function Alpilean() {
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState("");
+  const [tid, setTid] = useState(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -15,18 +16,29 @@ export default function Alpilean() {
     return () => clearTimeout(timer);
   }, []);
 
-  const affiliateLink =
-    "https://hop.clickbank.net/?affiliate=pmodi152&vendor=alpilean&pg=vid";
+  useEffect(() => {
+    // Extract the "tid" parameter from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    setTid(urlParams.get("tid"));
+  }, []);
 
-  const trackEvent = async (url, eventName, email) => {
+  // Modify the affiliateLink to conditionally include the "tid" parameter
+  const affiliateLink = tid
+    ? `https://aa2fabpkr98texdxmalff9tu0q.hop.clickbank.net?pg=vid&tid=${tid}`
+    : "https://aa2fabpkr98texdxmalff9tu0q.hop.clickbank.net?pg=vid";
+
+  const trackEvent = async email => {
+    const eventName = "hop";
+
     try {
       // Send a "hop" event to Vercel
       await va.track(eventName, {
-        url,
+        url: affiliateLink,
         source: "facebook",
         campaign: "Alpilean Traffic 7.17",
         client_user_agent: navigator.userAgent,
-        email: email
+        email: email,
+        ...(tid && { tid: tid }) // Conditionally include the "tid" parameter
       });
 
       await pixel.event("Lead", {
@@ -41,7 +53,7 @@ export default function Alpilean() {
     }
 
     // Redirect to the affiliate link
-    window.location.href = url;
+    window.location.href = affiliateLink;
   };
 
   const createContact = async email => {
@@ -59,7 +71,7 @@ export default function Alpilean() {
     if (email) {
       setShowModal(false);
       await createContact(email);
-      await trackEvent(affiliateLink, "hop", email);
+      await trackEvent(email);
     } else {
       alert("Please provide a valid email");
     }
@@ -83,7 +95,7 @@ export default function Alpilean() {
           <a
             onClick={e => {
               e.preventDefault();
-              trackEvent(affiliateLink, "hop", "");
+              trackEvent("");
             }}
             href="#">
             <img
@@ -104,7 +116,7 @@ export default function Alpilean() {
           <a
             onClick={e => {
               e.preventDefault();
-              trackEvent(affiliateLink, "hop", "");
+              trackEvent("");
             }}
             href="#"
             className="block rounded-lg bg-yellow-300 px-6 py-3 text-center font-bold text-blue-900 shadow-lg transition duration-200 hover:bg-yellow-400">
@@ -129,7 +141,7 @@ export default function Alpilean() {
           <a
             onClick={e => {
               e.preventDefault();
-              trackEvent(affiliateLink, "hop", "");
+              trackEvent("");
             }}
             href="#"
             className="mt-10 block text-center text-lg text-red-600 hover:text-red-700 dark:text-red-400">
@@ -148,7 +160,7 @@ export default function Alpilean() {
           <a
             onClick={e => {
               e.preventDefault();
-              trackEvent(affiliateLink, "hop", "");
+              trackEvent("");
             }}
             href="#"
             className="block rounded-lg bg-yellow-300 px-6 py-3 text-center font-bold text-blue-900 shadow-lg transition duration-200 hover:bg-yellow-400">
