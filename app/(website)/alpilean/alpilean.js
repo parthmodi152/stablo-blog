@@ -24,8 +24,8 @@ export default function Alpilean() {
 
   // Modify the affiliateLink to conditionally include the "tid" parameter
   const affiliateLink = tid
-    ? `https://086ec90ai8cq5z55nhqdg4yt0j.hop.clickbank.net?pg=ret&tid=${tid}`
-    : "https://086ec90ai8cq5z55nhqdg4yt0j.hop.clickbank.net?pg=ret";
+    ? `https://aa2fabpkr98texdxmalff9tu0q.hop.clickbank.net?pg=vid&tid=${tid}`
+    : "https://aa2fabpkr98texdxmalff9tu0q.hop.clickbank.net?pg=vid";
 
   const trackEvent = async email => {
     const eventName = "hop";
